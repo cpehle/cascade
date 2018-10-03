@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{691E2205-D8AA-46F6-A6AB-F1938316C5C8}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>cascade</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../../include/cascade;../../include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../../include/cascade;../../include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\cascade\BitMap.cpp" />
+    <ClCompile Include="..\..\src\cascade\BitVector.cpp" />
+    <ClCompile Include="..\..\src\cascade\Clock.cpp" />
+    <ClCompile Include="..\..\src\cascade\ClockDomain.cpp" />
+    <ClCompile Include="..\..\src\cascade\Component.cpp" />
+    <ClCompile Include="..\..\src\cascade\ComponentExtensions.cpp" />
+    <ClCompile Include="..\..\src\cascade\Constants.cpp" />
+    <ClCompile Include="..\..\src\cascade\Event.cpp" />
+    <ClCompile Include="..\..\src\cascade\FifoPorts.cpp" />
+    <ClCompile Include="..\..\src\cascade\Hierarchy.cpp" />
+    <ClCompile Include="..\..\src\cascade\Interface.cpp" />
+    <ClCompile Include="..\..\src\cascade\Ports.cpp" />
+    <ClCompile Include="..\..\src\cascade\PortStorage.cpp" />
+    <ClCompile Include="..\..\src\cascade\SimArchive.cpp" />
+    <ClCompile Include="..\..\src\cascade\SimGlobals.cpp" />
+    <ClCompile Include="..\..\src\cascade\Update.cpp" />
+    <ClCompile Include="..\..\src\cascade\Verilog.cpp" />
+    <ClCompile Include="..\..\src\cascade\Waves.cpp" />
+    <ClCompile Include="..\..\src\cascade\Wrapper.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\cascade\Array.hpp" />
+    <ClInclude Include="..\..\include\cascade\BitMap.hpp" />
+    <ClInclude Include="..\..\include\cascade\BitVector.hpp" />
+    <ClInclude Include="..\..\include\cascade\bv_types.hpp" />
+    <ClInclude Include="..\..\include\cascade\Cascade.hpp" />
+    <ClInclude Include="..\..\include\cascade\CascadeIO.hpp" />
+    <ClInclude Include="..\..\include\cascade\Clock.hpp" />
+    <ClInclude Include="..\..\include\cascade\ClockDomain.hpp" />
+    <ClInclude Include="..\..\include\cascade\Component.hpp" />
+    <ClInclude Include="..\..\include\cascade\ComponentExtensions.hpp" />
+    <ClInclude Include="..\..\include\cascade\Constants.hpp" />
+    <ClInclude Include="..\..\include\cascade\Event.hpp" />
+    <ClInclude Include="..\..\include\cascade\FifoPorts.hpp" />
+    <ClInclude Include="..\..\include\cascade\Hierarchy.hpp" />
+    <ClInclude Include="..\..\include\cascade\Interface.hpp" />
+    <ClInclude Include="..\..\include\cascade\Params.hpp" />
+    <ClInclude Include="..\..\include\cascade\PortArray.hpp" />
+    <ClInclude Include="..\..\include\cascade\Ports.hpp" />
+    <ClInclude Include="..\..\include\cascade\PortStorage.hpp" />
+    <ClInclude Include="..\..\include\cascade\PortTypes.hpp" />
+    <ClInclude Include="..\..\include\cascade\Reset.hpp" />
+    <ClInclude Include="..\..\include\cascade\SimArchive.hpp" />
+    <ClInclude Include="..\..\include\cascade\SimDefs.hpp" />
+    <ClInclude Include="..\..\include\cascade\SimGlobals.hpp" />
+    <ClInclude Include="..\..\include\cascade\Stack.hpp" />
+    <ClInclude Include="..\..\include\cascade\stdafx.h" />
+    <ClInclude Include="..\..\include\cascade\Triggers.hpp" />
+    <ClInclude Include="..\..\include\cascade\Update.hpp" />
+    <ClInclude Include="..\..\include\cascade\Verilog.hpp" />
+    <ClInclude Include="..\..\include\cascade\Waves.hpp" />
+    <ClInclude Include="..\..\include\cascade\Wrapper.hpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

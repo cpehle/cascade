@@ -1,0 +1,79 @@
+/*
+Copyright 2007, D. E. Shaw Research.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+
+* Redistributions of source code must retain the above copyright
+  notice, this list of conditions, and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright
+  notice, this list of conditions, and the following disclaimer in the
+  documentation and/or other materials provided with the distribution.
+
+* Neither the name of D. E. Shaw Research nor the names of its
+  contributors may be used to endorse or promote products derived from
+  this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+//////////////////////////////////////////////////////////////////////
+//
+// bv_types.hpp
+//
+// Copyright (C) 2007 D. E. Shaw Research
+//
+// Author:  J.P. Grossman (jp.grossman@deshaw.com)
+// Created: 05/15/2007
+//
+// Actual small bitvector definitions and bitvector typedefs
+//
+//////////////////////////////////////////////////////////////////////
+
+#ifndef Cascade_bv_types_hpp_
+#define Cascade_bv_types_hpp_
+
+// By default, bitvec<N> is uN and bitvec<-N> is sN.  Edit these macros to
+// change one or both of these defaults.
+#define BITVEC_TYPENAME_UNSIGNED u
+#define BITVEC_TYPENAME_SIGNED   s
+
+#define BITVEC_NAME2(name, n) name##n
+#define BITVEC_NAME(name, n) BITVEC_NAME2(name, n)
+
+#undef BITVEC_DEF
+#define BITVEC_DEF(n) \
+    typedef bitvec<-(n)> BITVEC_NAME(BITVEC_TYPENAME_SIGNED, n); \
+    typedef bitvec<n> BITVEC_NAME(BITVEC_TYPENAME_UNSIGNED, n)
+
+BITVEC_DEF(1); BITVEC_DEF(2); BITVEC_DEF(3); BITVEC_DEF(4); BITVEC_DEF(5); BITVEC_DEF(6); BITVEC_DEF(7); BITVEC_DEF(8); BITVEC_DEF(9); BITVEC_DEF(10);
+BITVEC_DEF(11); BITVEC_DEF(12); BITVEC_DEF(13); BITVEC_DEF(14); BITVEC_DEF(15); BITVEC_DEF(16); BITVEC_DEF(17); BITVEC_DEF(18); BITVEC_DEF(19); BITVEC_DEF(20);
+BITVEC_DEF(21); BITVEC_DEF(22); BITVEC_DEF(23); BITVEC_DEF(24); BITVEC_DEF(25); BITVEC_DEF(26); BITVEC_DEF(27); BITVEC_DEF(28); BITVEC_DEF(29); BITVEC_DEF(30);
+BITVEC_DEF(31); BITVEC_DEF(32); BITVEC_DEF(33); BITVEC_DEF(34); BITVEC_DEF(35); BITVEC_DEF(36); BITVEC_DEF(37); BITVEC_DEF(38); BITVEC_DEF(39); BITVEC_DEF(40);
+BITVEC_DEF(41); BITVEC_DEF(42); BITVEC_DEF(43); BITVEC_DEF(44); BITVEC_DEF(45); BITVEC_DEF(46); BITVEC_DEF(47); BITVEC_DEF(48); BITVEC_DEF(49); BITVEC_DEF(50);
+BITVEC_DEF(51); BITVEC_DEF(52); BITVEC_DEF(53); BITVEC_DEF(54); BITVEC_DEF(55); BITVEC_DEF(56); BITVEC_DEF(57); BITVEC_DEF(58); BITVEC_DEF(59); BITVEC_DEF(60);
+BITVEC_DEF(61); BITVEC_DEF(62); BITVEC_DEF(63); BITVEC_DEF(64); BITVEC_DEF(65); BITVEC_DEF(66); BITVEC_DEF(67); BITVEC_DEF(68); BITVEC_DEF(69); BITVEC_DEF(70);
+BITVEC_DEF(71); BITVEC_DEF(72); BITVEC_DEF(73); BITVEC_DEF(74); BITVEC_DEF(75); BITVEC_DEF(76); BITVEC_DEF(77); BITVEC_DEF(78); BITVEC_DEF(79); BITVEC_DEF(80);
+BITVEC_DEF(81); BITVEC_DEF(82); BITVEC_DEF(83); BITVEC_DEF(84); BITVEC_DEF(85); BITVEC_DEF(86); BITVEC_DEF(87); BITVEC_DEF(88); BITVEC_DEF(89); BITVEC_DEF(90);
+BITVEC_DEF(91); BITVEC_DEF(92); BITVEC_DEF(93); BITVEC_DEF(94); BITVEC_DEF(95); BITVEC_DEF(96); BITVEC_DEF(97); BITVEC_DEF(98); BITVEC_DEF(99); BITVEC_DEF(100);
+BITVEC_DEF(101); BITVEC_DEF(102); BITVEC_DEF(103); BITVEC_DEF(104); BITVEC_DEF(105); BITVEC_DEF(106); BITVEC_DEF(107); BITVEC_DEF(108); BITVEC_DEF(109); BITVEC_DEF(110);
+BITVEC_DEF(111); BITVEC_DEF(112); BITVEC_DEF(113); BITVEC_DEF(114); BITVEC_DEF(115); BITVEC_DEF(116); BITVEC_DEF(117); BITVEC_DEF(118); BITVEC_DEF(119); BITVEC_DEF(120);
+BITVEC_DEF(121); BITVEC_DEF(122); BITVEC_DEF(123); BITVEC_DEF(124); BITVEC_DEF(125); BITVEC_DEF(126); BITVEC_DEF(127); BITVEC_DEF(128);
+
+BITVEC_DEF(256);
+
+#endif
+

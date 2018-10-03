@@ -1,0 +1,74 @@
+       __________________________________________
+C     /                                          
+ A   /   Version 1.0 - March 10, 2013 
+  S /                                            
+   C     Copyright (c) 2013 D. E. Shaw Research  
+  / A                                            
+ /   D   All Rights Reserved                     
+/     E__________________________________________
+
+
+
+1. Supported compilers
+   -------------------
+
+This code requires some C++11 features and has been tested with the following compilers:
+
+g++ 4.7.2
+MSVC 2012
+VCS 2010.06
+
+The code is provided "as-is"; any other compiler or VCS version may require modifications.
+
+
+2. Directories
+   -----------
+
+doc                    - documentation for Cascade and descore
+examples/life          - Conway's game of life example from the Cascade manual
+examples/adder_verilog - Cascade/Verilog co-simulation example
+include                - Cascade/descore include files
+msvc2012               - Visual studio 2012 solution
+objs                   - Output directory for g++ builds
+src                    - Cascade/descore source files
+verilog                - Additional files required for Verilog co-simulation
+
+
+3. Building and Running
+   --------------------
+
+Build descore:
+
+$ cd src/descore
+$ make
+
+Build Cascade without support for Verilog co-simulation:
+
+$ cd src/cascade
+$ make
+
+Build Cascade with support for Verilog co-simulation:
+
+$ cd src/cascade
+$ make verilog
+
+Build and run life example (will automatically build descore and Cascade):
+
+$ cd examples/life
+$ make
+$ life
+
+Build and run adder_verilog example (will automatically build descore and Cascade):
+
+$ cd examples/adder_verilog
+$ make
+$ simv
+
+
+4. Contact information
+   -------------------
+
+Send all questions and suggestions to Cascade@DEShawResearch.com
+
+
+Enjoy!

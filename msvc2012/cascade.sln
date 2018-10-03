@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zlib", "zlib\zlib.vcxproj", "{8CA1B76A-7994-4ED7-80D7-9E0737BFC8E0}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "descore", "descore\descore.vcxproj", "{8E076B83-F66A-4094-B7EC-2E67EBC4DB61}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cascade", "cascade\cascade.vcxproj", "{691E2205-D8AA-46F6-A6AB-F1938316C5C8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "life", "life\life.vcxproj", "{D2520B21-09EC-4BE5-BD18-14512BAFCA7B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8CA1B76A-7994-4ED7-80D7-9E0737BFC8E0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8CA1B76A-7994-4ED7-80D7-9E0737BFC8E0}.Debug|Win32.Build.0 = Debug|Win32
+		{8CA1B76A-7994-4ED7-80D7-9E0737BFC8E0}.Release|Win32.ActiveCfg = Release|Win32
+		{8CA1B76A-7994-4ED7-80D7-9E0737BFC8E0}.Release|Win32.Build.0 = Release|Win32
+		{8E076B83-F66A-4094-B7EC-2E67EBC4DB61}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8E076B83-F66A-4094-B7EC-2E67EBC4DB61}.Debug|Win32.Build.0 = Debug|Win32
+		{8E076B83-F66A-4094-B7EC-2E67EBC4DB61}.Release|Win32.ActiveCfg = Release|Win32
+		{8E076B83-F66A-4094-B7EC-2E67EBC4DB61}.Release|Win32.Build.0 = Release|Win32
+		{691E2205-D8AA-46F6-A6AB-F1938316C5C8}.Debug|Win32.ActiveCfg = Debug|Win32
+		{691E2205-D8AA-46F6-A6AB-F1938316C5C8}.Debug|Win32.Build.0 = Debug|Win32
+		{691E2205-D8AA-46F6-A6AB-F1938316C5C8}.Release|Win32.ActiveCfg = Release|Win32
+		{691E2205-D8AA-46F6-A6AB-F1938316C5C8}.Release|Win32.Build.0 = Release|Win32
+		{D2520B21-09EC-4BE5-BD18-14512BAFCA7B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D2520B21-09EC-4BE5-BD18-14512BAFCA7B}.Debug|Win32.Build.0 = Debug|Win32
+		{D2520B21-09EC-4BE5-BD18-14512BAFCA7B}.Release|Win32.ActiveCfg = Release|Win32
+		{D2520B21-09EC-4BE5-BD18-14512BAFCA7B}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{8E076B83-F66A-4094-B7EC-2E67EBC4DB61}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>descore</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../../include/descore;../../include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../../include/descore;../../include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\descore\AllocTracker.hpp" />
+    <ClInclude Include="..\..\include\descore\Archive.hpp" />
+    <ClInclude Include="..\..\include\descore\assert.hpp" />
+    <ClInclude Include="..\..\include\descore\AssertParams.hpp" />
+    <ClInclude Include="..\..\include\descore\Coverage.hpp" />
+    <ClInclude Include="..\..\include\descore\crc.hpp" />
+    <ClInclude Include="..\..\include\descore\defines.hpp" />
+    <ClInclude Include="..\..\include\descore\descore.hpp" />
+    <ClInclude Include="..\..\include\descore\Enumeration.hpp" />
+    <ClInclude Include="..\..\include\descore\hex.hpp" />
+    <ClInclude Include="..\..\include\descore\Iterators.hpp" />
+    <ClInclude Include="..\..\include\descore\Log.hpp" />
+    <ClInclude Include="..\..\include\descore\MapIterators.hpp" />
+    <ClInclude Include="..\..\include\descore\Parameter.hpp" />
+    <ClInclude Include="..\..\include\descore\PointerVector.hpp" />
+    <ClInclude Include="..\..\include\descore\PrintStrings.hpp" />
+    <ClInclude Include="..\..\include\descore\PrintTable.hpp" />
+    <ClInclude Include="..\..\include\descore\Statistics.hpp" />
+    <ClInclude Include="..\..\include\descore\stdafx.h" />
+    <ClInclude Include="..\..\include\descore\stltree.hpp" />
+    <ClInclude Include="..\..\include\descore\strcast.hpp" />
+    <ClInclude Include="..\..\include\descore\StringBuffer.hpp" />
+    <ClInclude Include="..\..\include\descore\StringTable.hpp" />
+    <ClInclude Include="..\..\include\descore\Thread.hpp" />
+    <ClInclude Include="..\..\include\descore\ThreadFunction.hpp" />
+    <ClInclude Include="..\..\include\descore\Trace.hpp" />
+    <ClInclude Include="..\..\include\descore\type_traits.hpp" />
+    <ClInclude Include="..\..\include\descore\utils.hpp" />
+    <ClInclude Include="..\..\include\descore\Wildcard.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\descore\Archive.cpp" />
+    <ClCompile Include="..\..\src\descore\assert.cpp" />
+    <ClCompile Include="..\..\src\descore\Coverage.cpp" />
+    <ClCompile Include="..\..\src\descore\crc.cpp" />
+    <ClCompile Include="..\..\src\descore\Enumeration.cpp" />
+    <ClCompile Include="..\..\src\descore\hex.cpp" />
+    <ClCompile Include="..\..\src\descore\Log.cpp" />
+    <ClCompile Include="..\..\src\descore\Parameter.cpp" />
+    <ClCompile Include="..\..\src\descore\PrintStrings.cpp" />
+    <ClCompile Include="..\..\src\descore\PrintTable.cpp" />
+    <ClCompile Include="..\..\src\descore\Statistics.cpp" />
+    <ClCompile Include="..\..\src\descore\strcast.cpp" />
+    <ClCompile Include="..\..\src\descore\StringBuffer.cpp" />
+    <ClCompile Include="..\..\src\descore\StringTable.cpp" />
+    <ClCompile Include="..\..\src\descore\Thread.cpp" />
+    <ClCompile Include="..\..\src\descore\Trace.cpp" />
+    <ClCompile Include="..\..\src\descore\Wildcard.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
