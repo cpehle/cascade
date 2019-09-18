@@ -322,6 +322,7 @@ void Archive::archiveArray (T *data, int size)
 //
 /////////////////////////////////////////////////////////////////
 
+/*
 namespace std
 {
     template <typename T, typename A> class list;
@@ -333,6 +334,7 @@ namespace std
     template <typename K, typename T, typename P, typename A> class map;
     template <typename K, typename T, typename P, typename A> class multimap;
 };
+*/
 
 template <typename T> class ParameterValue;
 

@@ -91,6 +91,19 @@ DECLARE_EXCEPTION(strcast_error);
 /////////////////////////////////////////////////////////////////
 std::istream &operator>> (std::istream &is, const char *delimstring);
 
+template<typename T, typename A>
+std::istream &operator>> (std::istream &is, std::vector<T, A> &vec);
+
+template<typename T, typename A>
+std::ostream &operator<< (std::ostream &os, const std::vector<T, A> &vec);
+
+BEGIN_NAMESPACE_DESCORE
+struct ContainerStringHelper;
+END_NAMESPACE_DESCORE
+
+std::ostream &operator<< (std::ostream &os, descore::ContainerStringHelper s);
+
+
 /////////////////////////////////////////////////////////////////
 //
 // strcaststream
@@ -151,7 +164,7 @@ public:
     // operators for if (iss), if (!iss)
     inline operator void * () const
     {
-        return (void *) m_is;
+        return &m_is; // (void *) m_is;
     }
     inline bool operator! () const
     {
@@ -279,7 +292,7 @@ public:
     // Operators for if (oss), if (!oss)
     inline operator void * () const
     {
-        return (void *) m_os;
+        return &m_os; // (void *) m_os;
     }
     inline bool operator! () const
     {
@@ -548,6 +561,7 @@ inline void fromString (string &val, const string &s)
 //
 /////////////////////////////////////////////////////////////////
 
+/*
 namespace std
 {
     template <typename T, typename A> class list;
@@ -559,6 +573,7 @@ namespace std
     template <typename K, typename T, typename P, typename A> class map;
     template <typename K, typename T, typename P, typename A> class multimap;
 };
+*/
 
 namespace descore
 {
@@ -616,6 +631,7 @@ struct ContainerStringHelper
     const char *sz;
 };
 
+
 template <typename T>
 inline const T &oswrite_helper (const T &v)
 {
@@ -629,6 +645,7 @@ inline ContainerStringHelper oswrite_helper (const string &s)
 }
 
 END_NAMESPACE_DESCORE
+
 
 template <typename T>
 inline istrcaststream &operator>> (istrcaststream &is, descore::ContainerValueHelper<T> &val)
@@ -646,7 +663,6 @@ inline std::ostream &operator<< (std::ostream &os, const descore::delimited_stri
     return os << val.val;
 }
 
-std::ostream &operator<< (std::ostream &os, descore::ContainerStringHelper s);
 
 /////////////////////////////////////////////////////////////////
 //

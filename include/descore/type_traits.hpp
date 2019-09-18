@@ -82,7 +82,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #ifndef _MSC_VER
 #include <cxxabi.h>
-#include <malloc.h>
+// #include <malloc.h>
 #endif
 
 BEGIN_NAMESPACE_DESCORE

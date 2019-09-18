@@ -46,6 +46,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef descore_stltree_hpp
 #define descore_stltree_hpp
 
+/*
 namespace std
 {
     template <typename T, typename A> class list;
@@ -57,6 +58,7 @@ namespace std
     template <typename K, typename T, typename P, typename A> class map;
     template <typename K, typename T, typename P, typename A> class multimap;
 };
+*/
 
 //////////////////////////////////////////////////////////////////////
 //

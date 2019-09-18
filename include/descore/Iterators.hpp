@@ -534,7 +534,7 @@ public:
     }
     inline T *operator-> () const
     {
-        return m_curr.operator->();
+        return m_curr; //.operator->();
     }
     inline void operator++ ()
     {
@@ -585,7 +585,7 @@ public:
     }
     inline const T *operator-> () const
     {
-        return m_curr.operator->();
+        return m_curr; //.operator->();
     }
     inline void operator++ ()
     {
