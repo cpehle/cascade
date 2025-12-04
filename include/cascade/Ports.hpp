@@ -433,6 +433,7 @@ class Port : public PortBase
     friend class ClockDomain;
     friend class UpdateConstructor;
     friend class VerilogPortBinding;
+    friend class DPIPortBinding;
     friend struct Cascade::Waves;
     friend class WavesSignal;
     friend class PortStorage;

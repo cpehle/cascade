@@ -1,0 +1,157 @@
+"""BUILD file for Cascade - C++ hardware simulation library from D. E. Shaw Research."""
+
+load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library")
+load("@rules_hdl//verilog:defs.bzl", "verilog_library")
+load("@rules_hdl//verilator:defs.bzl", "verilator_cc_library")
+
+# descore - utility library
+cc_library(
+    name = "descore",
+    srcs = glob(["src/descore/*.cpp"]),
+    hdrs = glob(["include/descore/*.hpp", "include/descore/*.h"]),
+    includes = [
+        "include",
+        "include/descore",
+    ],
+    copts = [
+        "-std=c++11",
+    ],
+    linkopts = ["-lpthread"],
+    visibility = ["//visibility:public"],
+)
+
+# Bundled zlib sources
+cc_library(
+    name = "cascade_zlib",
+    srcs = glob(["src/zlib/*.c"]),
+    hdrs = glob(["include/zlib/*.h"]),
+    includes = [
+        "include",
+        "include/zlib",
+    ],
+    copts = [
+        "-Wno-implicit-function-declaration",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+# cascade - main simulation library
+cc_library(
+    name = "cascade",
+    srcs = glob(["src/cascade/*.cpp"]),
+    hdrs = glob(["include/cascade/*.hpp", "include/cascade/*.h"]),
+    includes = [
+        "include",
+        "include/cascade",
+    ],
+    copts = [
+        "-std=c++11",
+    ],
+    deps = [
+        ":descore",
+        ":cascade_zlib",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+# Example: life simulation
+cc_binary(
+    name = "life",
+    srcs = glob(["examples/life/*.cpp", "examples/life/*.hpp"]),
+    copts = [
+        "-std=c++11",
+        "-Icascade/examples/life",
+    ],
+    includes = ["examples/life"],
+    linkopts = [
+        "-lncurses",
+    ],
+    deps = [
+        ":cascade",
+    ],
+)
+
+# Example: adder verilog module (library for Verilog co-simulation)
+cc_library(
+    name = "adder_verilog",
+    srcs = ["examples/adder_verilog/Adder.cpp"],
+    copts = [
+        "-std=c++11",
+    ],
+    deps = [
+        ":cascade",
+    ],
+)
+
+###############################################################################
+# Verilator DPI Support
+###############################################################################
+
+# Cascade library with DPI support for Verilator
+cc_library(
+    name = "cascade_dpi",
+    srcs = glob(
+        ["src/cascade/*.cpp"],
+        exclude = ["src/cascade/Verilog.cpp"],  # Exclude VCS-specific implementation
+    ),
+    hdrs = glob(["include/cascade/*.hpp", "include/cascade/*.h"]),
+    includes = [
+        "include",
+        "include/cascade",
+    ],
+    copts = [
+        "-std=c++11",
+        "-D_VERILOG_DPI",
+    ],
+    deps = [
+        ":descore",
+        ":cascade_zlib",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+# Verilog library for the CAdder wrapper
+verilog_library(
+    name = "cadder_sv",
+    srcs = ["examples/adder_verilator/CAdder.sv"],
+    visibility = ["//visibility:public"],
+)
+
+# Verilator-generated C++ library from CAdder
+verilator_cc_library(
+    name = "cadder_verilator",
+    module = ":cadder_sv",
+    module_top = "CAdder",
+    vopts = [
+        "-Wall",
+        "-Wno-fatal",
+        "-Wno-DECLFILENAME",
+    ],
+)
+
+# C++ Adder component for DPI
+cc_library(
+    name = "adder_dpi",
+    srcs = ["examples/adder_verilator/Adder.cpp"],
+    copts = [
+        "-std=c++11",
+        "-D_VERILOG_DPI",
+    ],
+    deps = [
+        ":cascade_dpi",
+    ],
+    alwayslink = True,  # Ensure static registration runs
+)
+
+# Verilator test binary
+cc_binary(
+    name = "adder_verilator_test",
+    srcs = ["examples/adder_verilator/adder_tb.cpp"],
+    linkopts = [
+        "-lncurses",
+    ],
+    deps = [
+        ":cadder_verilator",
+        ":adder_dpi",
+    ],
+)

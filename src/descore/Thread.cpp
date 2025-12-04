@@ -464,11 +464,11 @@ bool Thread::isMainThread ()
 ////////////////////////////////////////////////////////////////////////////////
 
 #ifndef _MSC_VER
-#ifdef __x86_64__
+#if defined(__x86_64__)
 static int interlocked_add (volatile int *value, int amount)
 {
     int ret;
-    
+
     __asm__ __volatile__
         (
             "lock xadd %1, %0":
@@ -476,8 +476,19 @@ static int interlocked_add (volatile int *value, int amount)
             "1"(amount):             // inputs
             "memory", "cc"           // clobbers
             );
-    
+
     return ret + amount;
+}
+#elif defined(__aarch64__) || defined(__arm64__)
+static int interlocked_add (volatile int *value, int amount)
+{
+    return __atomic_add_fetch(value, amount, __ATOMIC_SEQ_CST);
+}
+#else
+// Fallback using GCC builtins for other architectures
+static int interlocked_add (volatile int *value, int amount)
+{
+    return __sync_add_and_fetch(value, amount);
 }
 #endif
 #endif
